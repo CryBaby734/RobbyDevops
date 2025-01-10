@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manageusers-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: manageusers
+  template:
+    metadata:
+      labels:
+        app: manageusers
+    spec:
+      containers:
+        - name: manageusers
+          image: crybaby734/user-crud-app:latest
+          ports:
+            - containerPort: 8080
